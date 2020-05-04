@@ -79,8 +79,23 @@ botcon.children[2].children[0].innerHTML = siteContent["main-content"]["vision-h
 botcon.children[2].children[1].innerHTML = siteContent["main-content"]["vision-content"];
 
 // contact
+let contact = document.body.firstElementChild.children[3];
+contact.children[0].innerHTML = siteContent.contact["contact-h4"];
+contact.children[1].innerHTML = siteContent.contact.address;
+contact.children[2].innerHTML = siteContent.contact.phone;
+contact.children[3].innerHTML = siteContent.contact.email;
 
-
-
+//footer
+let foo = document.body.firstElementChild.children[4];
+foo.firstElementChild.innerHTML = siteContent.footer.copyright;
 //Task 2
 
+let atags = myNav.getElementsByTagName('a');
+for (let index = 0; index < atags.length; index++) {
+  atags[index].style.color = 'green';
+  
+}
+let newItem = document.createElement('a');newItem.innerHTML = "I'm a new item.";newItem.style.color = 'green';
+let otherNewItem = document.createElement('a');otherNewItem.innerHTML = "I'm another new item.";otherNewItem.style.color = 'green';
+myNav.appendChild(newItem);
+myNav.prepend(otherNewItem);
