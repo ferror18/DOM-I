@@ -1,3 +1,4 @@
+console.clear();
 const siteContent = {
   "nav": {
     "nav-item-1": "Services",
@@ -37,6 +38,64 @@ const siteContent = {
   },
 };
 
+// Task 1
 // Example: Update the img src for the logo
+//header
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+let myNav = document.body.firstElementChild.firstElementChild.firstElementChild;
+myNav.children[0].innerHTML = siteContent.nav["nav-item-1"];
+myNav.children[1].innerHTML = siteContent.nav["nav-item-2"];
+myNav.children[2].innerHTML = siteContent.nav["nav-item-3"];
+myNav.children[3].innerHTML = siteContent.nav["nav-item-4"];
+myNav.children[4].innerHTML = siteContent.nav["nav-item-5"];
+myNav.children[5].innerHTML = siteContent.nav["nav-item-6"];
+myNav.parentElement.children[1].setAttribute('src', siteContent.nav["img-src"]);
+//cta
+let cta = document.body.firstElementChild.children[1];
+let ctaImg = document.getElementById("cta-img");
+// cta.children[1].innerHTML = siteContent.cta["h1"];
+cta.children[0].children[0].innerHTML = siteContent.cta.h1;
+cta.children[0].children[1].innerHTML = siteContent.cta.button;
+ctaImg.setAttribute('src', siteContent.cta["img-src"]);
+
+// maincontent
+let  midImg = document.getElementById("middle-img");
+let maincontent = document.body.firstElementChild.children[2]
+//    top content
+let topcon = maincontent.firstElementChild;
+topcon.children[0].children[0].innerHTML = siteContent["main-content"]["features-h4"];
+topcon.children[0].children[1].innerHTML = siteContent["main-content"]["features-content"];
+topcon.children[1].children[0].innerHTML = siteContent["main-content"]["about-h4"];
+topcon.children[1].children[1].innerHTML = siteContent["main-content"]["about-content"];
+//img
+midImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+// bottom content
+let botcon = maincontent.children[2];
+botcon.children[0].children[0].innerHTML = siteContent["main-content"]["services-h4"];
+botcon.children[0].children[1].innerHTML = siteContent["main-content"]["services-content"];
+botcon.children[1].children[0].innerHTML = siteContent["main-content"]["product-h4"];
+botcon.children[1].children[1].innerHTML = siteContent["main-content"]["product-content"];
+botcon.children[2].children[0].innerHTML = siteContent["main-content"]["vision-h4"];
+botcon.children[2].children[1].innerHTML = siteContent["main-content"]["vision-content"];
+
+// contact
+let contact = document.body.firstElementChild.children[3];
+contact.children[0].innerHTML = siteContent.contact["contact-h4"];
+contact.children[1].innerHTML = siteContent.contact.address;
+contact.children[2].innerHTML = siteContent.contact.phone;
+contact.children[3].innerHTML = siteContent.contact.email;
+
+//footer
+let foo = document.body.firstElementChild.children[4];
+foo.firstElementChild.innerHTML = siteContent.footer.copyright;
+//Task 2
+
+let atags = myNav.getElementsByTagName('a');
+for (let index = 0; index < atags.length; index++) {
+  atags[index].style.color = 'green';
+  
+}
+let newItem = document.createElement('a');newItem.innerHTML = "I'm a new item.";newItem.style.color = 'green';
+let otherNewItem = document.createElement('a');otherNewItem.innerHTML = "I'm another new item.";otherNewItem.style.color = 'green';
+myNav.appendChild(newItem);
+myNav.prepend(otherNewItem);
